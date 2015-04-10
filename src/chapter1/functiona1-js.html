@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="../../css/styles.css">
+	<script type="text/javascript" src="../../lib/d3.js"></script>
+	<script type="text/javascript">
+		function SimpleWidget(space){
+			var instance = {};
+			var headline, description;
+
+			instance.render = function(){
+				var div = d3.select("body").append("div");
+				div.append("h3").text(headline);
+
+				div.attr("class","box")
+						.attr("style","color:" + space.color)
+						.append("p")
+						.text(description);
+
+				return instance;
+			};
+
+			instance.headline = function(head){
+				if(!arguments.length) head;
+				headline = head;
+				return instance;
+			};
+
+			instance.description = function(d){
+				if(!arguments.length) d;
+				description = d;
+				return instance;
+			};
+
+			return instance;
+		}
+
+		var widget = SimpleWidget({color: "#6495ed"})
+				.headline("Simple Widget")
+				.description("This is a simple widget demonstrating function1 javascript.");
+		widget.render();
+	</script>
+</head>
+<body>
+
+</body>
+</html>
