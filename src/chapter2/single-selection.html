@@ -11,6 +11,13 @@
 	<script type="text/javascript">
 		d3.select("p#target").text("Test!");
 		d3.select("p").attr("foo","goo");
+		console.log(d3.select("p").attr("foo"));
+
+		var goo_class = d3.select("p").classed("goo");
+		console.log(goo_class);
+		d3.select("p").classed("goo",true);
+		var goo_class = d3.select("p").classed("goo");
+		console.log(goo_class);
 	</script>
 </body>
 </html>
